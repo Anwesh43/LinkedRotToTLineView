@@ -215,4 +215,13 @@ class RotToTLineView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+
+        fun create(activity : Activity) : RotToTLineView {
+            val view : RotToTLineView = RotToTLineView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
