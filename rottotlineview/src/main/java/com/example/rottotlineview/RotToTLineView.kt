@@ -190,4 +190,27 @@ class RotToTLineView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : RotToTLineView) {
+
+        private val animator : Animator = Animator(view)
+        private val rttl : RotToTLine = RotToTLine(0)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            rttl.draw(canvas, paint)
+            animator.animate {
+                rttl.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            rttl.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
