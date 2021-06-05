@@ -135,7 +135,7 @@ class RotToTLineView(ctx : Context) : View(ctx) {
         private var prev : RTTLNode? = null
 
         init {
-
+            addNeighbor()
         }
 
         fun addNeighbor() {
